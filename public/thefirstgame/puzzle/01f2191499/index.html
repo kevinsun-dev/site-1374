@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hyeong</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="/thefirstgame/puzzle/styles.css" />
+  <style>
+    .nonogramColClueCell {
+      vertical-align: bottom;
+    }
+
+    .nonogramRowClueCell {
+      text-align: right;
+    }
+
+    td {
+      border: 1px black solid;
+      width: 1em;
+      border-spacing: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="message">
+    <h2>Puzzle 8</h2>
+    <h1>Hyeong</h1>
+    <p>
+    <table class="nonogramTable">
+      <tr>
+        <td></td>
+        <td class="nonogramColClueCell"><div>4</div><div>1</div></td>
+        <td class="nonogramColClueCell"><div>2</div><div>5</div><div>2</div></td>
+        <td class="nonogramColClueCell"><div>5</div><div>9</div></td>
+        <td class="nonogramColClueCell"><div>16</div></td>
+        <td class="nonogramColClueCell"><div>2</div><div>2</div><div>4</div></td>
+        <td class="nonogramColClueCell"><div>2</div><div>2</div><div>1</div><div>2</div><div>2</div></td>
+        <td class="nonogramColClueCell"><div>2</div><div>2</div><div>1</div><div>2</div><div>2</div></td>
+        <td class="nonogramColClueCell"><div>2</div><div>2</div><div>4</div></td>
+        <td class="nonogramColClueCell"><div>15</div></td>
+        <td class="nonogramColClueCell"><div>1</div><div>3</div><div>9</div></td>
+        <td class="nonogramColClueCell"><div>1</div><div>3</div><div>5</div><div>2</div></td>
+        <td class="nonogramColClueCell"><div>1</div><div>4</div><div>1</div></td>
+      </tr>
+      <tr><td class="nonogramRowClueCell"><span>5</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>9</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>2&nbsp;</span><span>1</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>2&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>2&nbsp;</span><span>4</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>2&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>6</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>2&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>4&nbsp;</span><span>2&nbsp;</span><span>4</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>5&nbsp;</span><span>5</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>12</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>12</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>3&nbsp;</span><span>3</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="nonogramRowClueCell"><span>4&nbsp;</span><span>4</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    </p>
+    <br /><br />
+    <form id="submitAnwser">
+      <label for="anwser">Anwser:</label>
+      <input type="text" id="anwser" name="anwser" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+<script>
+  const puzzleId = 8;
+  const puzzleAnwser = "01f2191499b209a0f44bb47ccf9e5a67e7702eb96a5ec0cd12e5896ed2ac0d62e963c744575b54a073effae99ba3b3d2130e75b19a8ef18a889cc9417a31c31b";
+
+  document.addEventListener('DOMContentLoaded', function () {
+    try {
+      let app = firebase.app();
+      let db = firebase.firestore();
+      let analytics = firebase.analytics();
+
+      const getCookie = (cname) => {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      async function digestMessage(message) {
+        const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+        const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8);           // hash the message
+        const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+        return hashHex;
+      }
+
+      let savedPlayerId = getCookie("playerId");
+      if (savedPlayerId.length < 3) {
+        window.location.href = "/";
+      }
+
+      let anwserForm = document.getElementById("submitAnwser");
+      anwserForm.addEventListener('submit', (event) => {
+        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
+        anwserForm.elements['anwser'].value = "";
+
+        digestMessage(anwser).then((hash) => {
+          if (hash === puzzleAnwser) {
+            const playerDocRef = db.collection('players').doc(savedPlayerId);
+
+            playerDocRef.get().then((playerDoc) => {
+              let playerData = playerDoc.data();
+              let board = playerData['bingoBoard'];
+              board.forEach((it, i) => {
+                if (it.puzzleId == puzzleId) {
+                  it.solved = true;
+                }
+              });
+              playerData['bingoBoard'] = board;
+              playerDocRef.set(playerData).then(() => {
+                window.location.href = "/thefirstgame/";
+              });
+            });
+          }
+        });
+        event.preventDefault();
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  });
+</script>
+
+</html>

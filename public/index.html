@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>MCCCLXXIV</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-performance-compat.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script src="/script.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <div id="message">
+    <h2>Welcome back.</h2>
+    <h1>You can't escape the game.</h1>
+    <form id="loginForm">
+      <label for="playerId">Player ID:</label>
+      <input type="number" id="playerId" name="playerId" placeholder="ex: 456" minlength="3" maxlength="5" size="5" step="1" required>
+      <label for="phone">Last 4 Digits (Phone #):</label>
+      <input type="number" id="phone" name="phone" pattern="[0-9]{4}" placeholder="ex: 1374" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+
+</html>
