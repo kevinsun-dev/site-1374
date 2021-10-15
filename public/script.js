@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let savedPlayerId = getCookie("playerId");
     if (savedPlayerId.length >= 3){
-      window.location.href = "/thefirstgame/";
+      window.location.href = "/countdown/";
     }
 
     loginForm.addEventListener('submit', (event) => {

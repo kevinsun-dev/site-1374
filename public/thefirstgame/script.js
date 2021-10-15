@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let app = firebase.app();
     let db = firebase.firestore();
     let analytics = firebase.analytics();
-    let countDownDate = new Date("Oct 20, 2021 11:59:59").getTime();
+    let countDownDate = new Date("Oct 27, 2021 23:59:59").getTime();
 
     const getCookie = (cname) => {
       let name = cname + "=";
@@ -101,4 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
   } catch (e) {
     console.error(e);
   }
+
+  let rulesBtn = document.getElementById('rulesbtn');
+  rulesBtn.addEventListener("click", () => {
+    let rulesPage = document.getElementById('rules');
+    rulesPage.style.visibility = 'visible';
+  });
 });

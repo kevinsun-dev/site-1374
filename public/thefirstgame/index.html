@@ -43,7 +43,32 @@
       <div id="column_4" class="pure-u-1-5"></div>
     </div>
   </div>
+  <div id="rules" style="visibility: hidden;">
+    <h2>Game 1.</h2>
+    <h1>A Round of Bingo</h1>
+    <p>
+      Welcome to the games, Player. We’re glad to have you here. <br /><br />
+      <b>How to Play</b><br />
+      This is the first of six games, a simple game of Bingo. Fill in Bingo squares until a row, column, or
+      diagonal is complete. However, to fill in a square, you must first solve a puzzle. The answer to each puzzle will
+      be a single word unless specified otherwise.<br /><br />
+      <b>Unlocking Puzzles</b><br />
+      We have scattered around QR codes to unlock puzzles across the campus. When scanned, the puzzle is unlocked for
+      everyone, and a unique hint is revealed only to the player who unlocked it.<br /><br />
+      <b>Elimination</b><br />
+      If a player cannot complete a Bingo before October 27th, at 11:59 PM, they will be eliminated from the games.<br />
+      <br />
+      Good luck, and have fun! :D
+    </p>
+    <a href="#" onclick="document.getElementById('rules').style.visibility = 'hidden'">Return to the game</a>
+  </div>
   <h1 id="timeLeft"></h1>
+  <a id="rulesbtn" style="position: absolute; bottom: 0; left: 0;">
+    <img alt="Rules" src="../assets/rules.svg" width="64" height="64">
+  </a>
+  <a href="/players" style="position: absolute; bottom: 0; right: 0;">
+    <img alt="Player List" src="../assets/playerbook.svg" width="64" height="64">
+  </a>
 </body>
 
 </html>

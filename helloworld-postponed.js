@@ -49,37 +49,20 @@ exports.handler = function (context, event, callback) {
                 'dateJoined': new Date(),
                 'eliminated': false,
                 'points': 0
+            }).then((playerDoc) => {
+                const twiml = new Twilio.twiml.VoiceResponse();
+                twiml.pause({
+                    length: 2
+                });
+                twiml.say({
+                    voice: 'man'
+                }, `Welcome, player ${sPlayerId}. Due to unforeseen circumstances, the games have been postponed until further notice.`);
+                twiml.pause({
+                    length: 1
+                });
+                return callback(null, twiml);
             });
-            const twiml = new Twilio.twiml.VoiceResponse();
-            twiml.pause({
-                length: 2
-            });
-            twiml.say({
-                voice: 'man'
-            }, `We heard you like games.`);
-            let teamPhrase = "";
-            switch (teamSelected) {
-                case "Circle": teamPhrase = "Klarman Entrance. You'll be meeting up with the rest of Team Circle."; break;
-                case "Triangle": teamPhrase = "Duffield Entrance. You'll be meeting up with the rest of Team Triangle."; break;
-                default: teamPhrase = "Cornell Store Entrance. You'll be meeting up with the rest of Team Umbrella.";
-            }
-            twiml.say({
-                voice: 'man'
-            }, `October 22nd. 5 PM. ${teamPhrase} Be there.`);
-            twiml.pause({
-                length: 2
-            });
-            twiml.say({
-                voice: 'man'
-            }, `Good luck, player ${sPlayerId}.`);
-            twiml.record({
-                timeout: 5,
-                playBeep: true
-            });
-            twiml.pause({
-                length: 1
-            });
-            return callback(null, twiml);
+
         } else {
             playerDocRef.get().then((playerDoc) => {
                 // Existing Players
@@ -99,7 +82,7 @@ exports.handler = function (context, event, callback) {
                         });
                         twiml.say({
                             voice: 'man'
-                        }, `So far, ${Object.keys(phoneMap).length} have joined the games. We're almost ready to get started.`);
+                        }, `So far, ${Object.keys(phoneMap).length} have joined the games. We are still on hold until further notice.`);
                     } break;
                     default: {
                         // Kill calls for rejected players
@@ -110,27 +93,9 @@ exports.handler = function (context, event, callback) {
                         twiml.pause({
                             length: 2
                         });
-                        if (playerId <= 106){
-                            twiml.say({
-                                voice: 'man'
-                            }, `Hello again, player ${sPlayerId}. Thanks for your patience. We're back up and running.`);
-                        } else {
-                            twiml.say({
-                                voice: 'man'
-                            }, `Hello again, player ${sPlayerId}.`);
-                        }
-                        twiml.pause({
-                            length: 1
-                        });
-                        let teamPhrase = "";
-                        switch (playerData['team']) {
-                            case "Circle": teamPhrase = "Klarman Entrance."; break;
-                            case "Triangle": teamPhrase = "Duffield Entrance."; break;
-                            default: teamPhrase = "Cornell Store Entrance.";
-                        }
                         twiml.say({
                             voice: 'man'
-                        }, `Your meeting location is: October 22nd. 5 PM. ${teamPhrase}`);
+                        }, `Welcome back, player ${sPlayerId}. Due to unforeseen circumstances, the games have been postponed until further notice.`);
                     };
                 }
 
