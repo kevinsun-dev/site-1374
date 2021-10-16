@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let playerData = playerDoc.data();
         if (playerData['phoneNumber'].endsWith(phoneDigits)) {
           document.cookie = `playerId=${playerId}; phoneNumber=${phoneDigits}`;
-          window.location.href = "/thefirstgame/";
+          window.location.href = "/countdown/";
         }
       });
     }
