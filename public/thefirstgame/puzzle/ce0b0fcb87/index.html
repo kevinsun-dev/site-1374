@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Nonbinary Binary</title>
+  <title>Favorites</title>
   <meta name="description" content="⭘△▢">
   <meta name="author" content="⭘△▢">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,11 +27,10 @@
 
 <body>
   <div id="message">
-    <h2>Puzzle 3</h2>
-    <h1>Nonbinary Binary</h1>
-    <p>Solve the puzzle to reveal the name of a species that does not exist</p>
-    <img src="/thefirstgame/puzzle/assets/2606881654.png" />
-    <br /><br /><br /><br /><br />
+    <h2>Puzzle 5</h2>
+    <h1>Favorites</h1>
+    <p><i>Note: The answer is the artist(s)'s name</i></p>
+    <br /><br />
     <form id="submitAnwser">
       <label for="anwser">Anwser:</label>
       <input type="text" id="anwser" name="anwser" required>
@@ -41,8 +40,30 @@
 </body>
 
 <script>
-  const puzzleId = 3;
-  const puzzleAnwser = "2606881654302f46e9c3e4a3b0f0ec3b42224f9c43207411169ac15912839c70489fde359135f2a9cdd9a30d1a81f4ad507abb509cca57b56bc528c654a380d9";
+  const puzzleId = 5;
+  const puzzleAnwser = "ce0b0fcb8771c778dd4253f469f828626d16a26f0175dbc8defcfb697874b13738b77e35bd0e9839be1a624f8596706bba0f5ea96ddf033d85d461da2859cf90";
+
+  const changeFavicon = link => {
+    let $favicon = document.querySelector('link[rel="icon"]')
+    if ($favicon !== null) {
+      $favicon.href = link
+    } else {
+      $favicon = document.createElement("link")
+      $favicon.rel = "icon"
+      $favicon.href = link
+      document.head.appendChild($favicon)
+    }
+  }
+
+  let faviconIndex = 9;
+  setInterval(function () {
+    changeFavicon("../assets/ce0b0fcb87/" + faviconIndex + ".png");
+    if (faviconIndex < 19){
+      faviconIndex++;
+    } else {
+      faviconIndex = 9;
+    }
+  }, 1000);
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
