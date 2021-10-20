@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Basic</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="/thefirstgame/puzzle/styles.css" />
+</head>
+
+<body>
+  <div id="message">
+    <h2>Puzzle 16</h2>
+    <h1>Basic</h1>
+    <code style="word-wrap: break-word;">
+      3c737667206865696768743d273330307078272077696474683d27333030707827202066696c6c3d22233030303030302220786d6c6e733d22687474703a2f2f7777772e77332e6f72672f323030302f7376672220786d6c6e733a786c696e6b3d22687474703a2f2f7777772e77332e6f72672f313939392f786c696e6b222076657273696f6e3d22312e312220783d223070782220793d22307078222076696577426f783d223020302036342036342220656e61626c652d6261636b67726f756e643d226e6577203020302036342036342220786d6c3a73706163653d227072657365727665223e3c673e3c673e3c673e3c673e3c7061746820643d224d33372c3139483237632d302e3535322c302d312d302e3434382d312d3173302e3434382d312c312d3168313063302e3535322c302c312c302e3434382c312c315333372e3535322c31392c33372c31397a223e3c2f706174683e3c2f673e3c2f673e3c673e3c7061746820643d224d32312e3637392d302e3137324c32362e3234332c31366831312e3437396c352e3335312d31362e3137324832312e3637397a204d33352e3934392c362e3331364c33332e3338382c3134682d322e3737356c2d322e3536£312d372e3638342020202020632d302e3137352d302e3532342c302e3130382d312e30392c302e3633322d312e32363563302e3532352d302e3137372c312e3039312c302e3130392c312e3236352c302e3633324c33322c31312e3833386c322e3035312d362e313534202020202063302e3137342d302e3532332c302e3733392d302e38312c312e3236352d302e3633324333352e38342c352e3232362c33362e3132342c352e3739322c33352e3934392c362e3331367a223e3c2f706174683e3c2f673e3c2f673e3c7061746820643d224d35372e3936312c35322e3732356c2d372e3434352d32352e3937334334392e3439312c32322e3737362c34352e3930372c32302c34312e3830322c32304832322e313735632d342e3038362c302d372e3636342c322e3735382d382e3730342c362e3730394c362e3033332c35322e373437202020632d302e3636332c322e3532392d302e3037362c352e3233312c312e3630382c372e34313543392e3439372c36322e3536352c31322e3338342c36342c31352e3336352c36346833332e31343363332e3030382c302c352e3933322d312e3435362c372e3832322d332e3839352020204335382e3031362c35372e3932392c35382e3631332c35352e3234392c35372e3936312c35322e3732357a204d31382c3630682d31632d302e3535322c302d312d302e3434382d312d3173302e3434382d312c312d31683163302e3535322c302c312c302e3434382c312c315331382e3535322c36302c31382c36307a202020204d32322c3630682d31632d302e3535322c302d312d302e3434382d312d3173302e3434382d312c312d31683163302e3535322c302c312c302e3434382c312c315332322e3535322c36302c32322c36307a204d32332e30332c32342e37364c32332e37322c323268322e30366c2d302e38312c332e32342020204332342e38362c32352e372c32342e34352c32362c32342c3236632d302e30382c302d302e31362d302e30312d302e32342d302e30334332332e32322c32352e38342c32322e392c32352e32392c32332e30332c32342e37367a204d32362c3630682d31632d302e3535322c302d312d302e3434382d312d3120202073302e3434382d312c312d31683163302e3535322c302c312c302e3434382c312c315332362e3535322c36302c32362c36307a204d33372c3439682d39632d302e3838382c302d312e3330372d302e342d312e3530322d302e373336202020632d302e3439382d302e3835372c302e3035312d312e3831382c302e3633332d322e38333663302e3134362d302e3235372c302e3239362d302e3531382c302e3432322d302e37376c302e3334322d302e3638344332372e3936332c34332e3833372c32382c34332e3638322c32382c34332e353237563432682d33202020632d302e3535322c302d312d302e3434372d312d3173302e3434382d312c312d316833762d3563302d312e3635342c312e3334362d332c332d33683263312e3635342c302c332c312e3334362c332c33763163302c302e3535332d302e3434382c312d312c31732d312d302e3434372d312d31762d3120202063302d302e3535322d302e3434392d312d312d31682d32632d302e3535312c302d312c302e3434382d312c317635683463302e3535322c302c312c302e3434372c312c31732d302e3434382c312d312c31682d3476312e35323763302c302e3436342d302e3130392c302e3932382d302e3331362c312e3334322020206c2d302e3334322c302e363834632d302e3134322c302e3238342d302e33312c302e3537382d302e3437352c302e383637632d302e3039372c302e31372d302e3231362c302e3337392d302e33322c302e3537354c33372c343763302e3535322c302c312c302e3434372c312c315333372e3535322c34392c33372c34392020207a204d34302e32342c32352e39374334302e31362c32352e39392c34302e30382c32362c34302c3236632d302e34352c302d302e38362d302e332d302e39372d302e37364c33382e32322c323268322e30366c302e36392c322e37362020204334312e312c32352e32392c34302e37382c32352e38342c34302e32342c32352e39377a223e3c2f706174683e3c2f673e3c2f7376673e
+    </code>
+    <br /><br /><br /><br /><br />
+    <form id="submitAnwser">
+      <label for="anwser">Anwser:</label>
+      <input type="text" id="anwser" name="anwser" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+<script>
+  const puzzleId = 16;
+  const puzzleAnwser = "e10d3fdb039f7bc1ed8e6cc0a13f0cdfd20b973eaa215150a6fa0b6de4e9629b89a5cbc55b9a8a443941e4345459d77e3a87b08598fa2658014b9d408ac44cd4";
+
+  document.addEventListener('DOMContentLoaded', function () {
+    try {
+      let app = firebase.app();
+      let db = firebase.firestore();
+      let analytics = firebase.analytics();
+
+      const getCookie = (cname) => {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      async function digestMessage(message) {
+        const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+        const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8);           // hash the message
+        const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+        return hashHex;
+      }
+
+      let savedPlayerId = getCookie("playerId");
+      if (savedPlayerId.length < 3) {
+        window.location.href = "/";
+      }
+
+      let anwserForm = document.getElementById("submitAnwser");
+      anwserForm.addEventListener('submit', (event) => {
+        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
+        anwserForm.elements['anwser'].value = "";
+
+        digestMessage(anwser).then((hash) => {
+          if (hash === puzzleAnwser) {
+            const playerDocRef = db.collection('players').doc(savedPlayerId);
+
+            playerDocRef.get().then((playerDoc) => {
+              let playerData = playerDoc.data();
+              let board = playerData['bingoBoard'];
+              board.forEach((it, i) => {
+                if (it.puzzleId == puzzleId) {
+                  it.solved = true;
+                }
+              });
+              playerData['bingoBoard'] = board;
+              playerDocRef.set(playerData).then(() => {
+                window.location.href = "/thefirstgame/";
+              });
+            });
+          }
+        });
+        event.preventDefault();
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  });
+</script>
+
+</html>
