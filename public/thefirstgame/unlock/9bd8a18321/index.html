@@ -37,6 +37,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    let countDownDate = new Date("Oct 22, 2021 17:00:00").getTime();
+    let now = new Date().getTime();
+    let distance = countDownDate - now;
+    if (distance > 0) {
+      window.location.href = "/countdown/";
+    }
+    
     try {
       let app = firebase.app();
       let db = firebase.firestore();
@@ -71,6 +78,8 @@
             });
           }
         });
+      } else {
+        window.location.href = "/";
       }
     } catch (e) {
       console.error(e);
