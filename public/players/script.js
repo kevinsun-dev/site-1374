@@ -32,10 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = "/";
     }
 
+    const playerDisp = document.getElementById(`playerDisp`);
+    const chatDisp = document.getElementById(`chat`);
+    const chatContainerDisp = document.getElementById(`chatContainer`);
+    const chatBtn = document.getElementById('chatbtn');
+    const inputMsg = document.getElementById('inputMsg');
+    const sendMsg = document.getElementById('sendMsg');
+    playerDisp.innerText = `Welcome Back, Player ${savedPlayerId}.`
+
     const playersRef = db.collection('players');
     playersRef.get().then((playersDoc) => {
       let index = 0;
+      let chatList = [];
       playersDoc.forEach((playerDoc) => {
+        let playerData = playerDoc.data();
         if (playerDoc.id > 0) {
           let colNum = index % 5;
           const colItem = document.getElementById(`column_${colNum}`);
@@ -45,17 +55,57 @@ document.addEventListener('DOMContentLoaded', function () {
           playerFace.innerText = playerDoc.id;
           playerFace.className = "player-content";
           if (colNum % 2 == 1) {
-            playerContainer.className = (!playerDoc.eliminated) ? "player-alt player-alive" : "player-alt player-dead";
+            playerContainer.className = (!playerData.eliminated) ? "player-alt player-alive" : "player-alt player-dead";
           } else {
-            playerContainer.className = (!playerDoc.eliminated) ? "player player-alive" : "player player-dead";
+            playerContainer.className = (!playerData.eliminated) ? "player player-alive" : "player player-dead";
+          }
+          if (playerData.messages) {
+            chatList = chatList.concat(playerData.messages);
           }
           playerContainer.appendChild(playerFace);
           colItem.appendChild(playerContainer);
         }
         index++;
       });
-      const playerDisp = document.getElementById(`playerDisp`);
-      playerDisp.innerText = `Welcome Back, Player ${savedPlayerId}.`
+      let sortedChat = chatList.sort((a, b) => b.date - a.date);
+      sortedChat.forEach((msg) => {
+        const chatMsg = document.createElement("p");
+        chatMsg.innerText = msg.title;
+        chatContainerDisp.appendChild(chatMsg);
+      });
+    });
+
+    sendMsg.addEventListener("click", () => {
+      const playerDocRef = db.collection('players').doc(savedPlayerId);
+      playerDocRef.get().then((playerDoc) => {
+        let playerData = playerDoc.data();
+        let msgList = [];
+        if (playerData['messages']) {
+          msgList = playerData['messages'];
+        } else {
+          playerData['messages'] = msgList;
+        }
+        msgList.push({ title: `Player ${savedPlayerId}: ${inputMsg.value}`, date: new Date() });
+
+        playerDocRef.set(playerData).then(() => {
+          const chatMsg = document.createElement("p");
+          chatMsg.innerText = `Player ${savedPlayerId}: ${inputMsg.value}`;
+          chatContainerDisp.prepend(chatMsg);
+          inputMsg.value = "";
+        });
+      });
+    });
+
+    inputMsg.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("sendMsg").click();
+      }
+    });
+
+    chatBtn.addEventListener("click", () => {
+      chatDisp.style.visibility = 'visible';
+      chatBtn.style.visibility = 'hidden';
     });
   } catch (e) {
     console.error(e);

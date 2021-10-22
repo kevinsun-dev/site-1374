@@ -46,6 +46,78 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+#chat {
+    position: fixed;
+    background-image: url(/assets/paper_texture.jpg);
+    background-size: contain;
+    max-width: 360px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 50px auto 100px;
+    padding: 32px 24px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#chat h2 {
+    color: #B31B1B;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0 8px;
+}
+
+#chat h1 {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 16px;
+}
+
+#chat p {
+    line-height: 140%;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+#chat input {
+    float: left;
+    flex-grow: 1;
+    padding: 12px 20px;
+    margin: 8px 0;
+    color: black;
+    background-color: transparent;
+    border: 1px #B31B1B solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Courier Prime', monospace;
+    font-size: 14pt;
+}
+
+#chat input::placeholder {
+    color: darkgray;
+    opacity: 1;
+  }
+
+#chat button {
+    float: left;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: transparent;
+    border: 1px #B31B1B solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Courier Prime', monospace;
+    font-size: 14pt;
+}
+
+#chatContainer {
+    overflow-y: scroll;
+    height: calc(100% - 4em);
+}
+
 .player-content {
     position: absolute;
     top: 0;
@@ -115,8 +187,8 @@ body {
 }
 
 @media (max-width: 600px) {
-    body, #message {
-        margin-top: 0;
+    body, #message, #chat {
+        margin: 0 0 0 0;
         background-image: url(/assets/paper_texture.jpg);
         background-size: contain;
         box-shadow: none;
