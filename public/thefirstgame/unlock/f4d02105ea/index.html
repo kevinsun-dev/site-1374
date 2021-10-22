@@ -76,6 +76,19 @@
               'unlockedBy': savedPlayerId,
               'unlockedAt': new Date()
             });
+            const playerDocRef = db.collection('players').doc(savedPlayerId);
+            playerDocRef.get().then((playerDoc) => {
+              let playerData = playerDoc.data();
+              let msgList = [];
+              if (playerData['messages']) {
+                msgList = playerData['messages'];
+              } else {
+                playerData['messages'] = msgList;
+              }
+              msgList.push({ title: `Player ${savedPlayerId} has found a new Puzzle. Tile 11 is now unlocked!`, date: new Date() });
+
+              playerDocRef.set(playerData);
+            });
           }
         });
       } else {
