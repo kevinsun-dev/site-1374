@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Introduction</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="/thefirstgame/puzzle/styles.css" />
+</head>
+
+<body>
+  <div id="message">
+    <h2>⭘△▢</h2>
+    <h1>Welcome</h1>
+    <p>Welcome to the games, Player. We’re glad to have you here.</p>
+    <h3>How to Play</h3>
+    <p>
+      You all will take part in up to 6 weeks of games, 1 per week. These games will span across campus, involving
+      various skills and genres. If you fail to complete a game, you will be eliminated, and you will lose access to
+      further games. Players are free to interact with one another, share information, and support each other in any way
+      they’d like. Similarly, players are free to misinform and sabotage one another in whatever way they see fit.
+      Information from previous games may or may not come into play in future games.
+    </p>
+    <p>
+      We will be running most games at <a href="/">https://mccclxxiv.web.app/</a>. QR Codes have been placed at the meeting locations
+      with the link above, however players are free to join remotely as well. There will be in-person components to the
+      game, so it will be beneficial to be on campus.
+    </p>
+    <p>
+      Rules for each game can be viewed on the site alongside the list of players, which displays the list of active
+      and eliminated players.
+    </p>
+    <p>
+      Players can join until the end of Game 1, on October 27th, at 11:59 PM. Afterwards, no new players will be allowed
+      into the games.
+    </p>
+    <h3>Privacy</h3>
+    <p>
+      Players will only be identified by their player number (provided by the system), and phone number (provided by the
+      player). No names, locations, or any other additional information will be recorded, and all information will be
+      deleted with the conclusion of the game. We will not reveal, sell, or redistribute your data. Please do not share
+      your login information. That is all.
+    </p>
+    <h3>Additional Rules</h3>
+    <p>
+      Please follow all state and local laws during these games. In addition, please follow the Cornell Student Code of
+      Conduct. If gatherings are organized, please follow all relevant COVID guidelines. We are not responsible or
+      liable for any actions you take during the game in violation of these rules.
+    </p>
+    <p>
+      Good luck.
+    </p>
+    <a href="/thefirstgame/">Let's begin!</a>
+  </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const getCookie = (cname) => {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    let savedPlayerId = getCookie("playerId");
+    if (savedPlayerId.length < 3) {
+      window.location.href = "/";
+    }
+  });
+</script>
+
+</html>

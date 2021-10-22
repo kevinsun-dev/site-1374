@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>List of Locations</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="/thefirstgame/puzzle/styles.css" />
+</head>
+
+<body>
+  <div id="message">
+    <h2>Puzzle Unlock Codes</h2>
+    <h1>List of Locations</h1>
+    <p>
+      CGV7+8WR Ithaca, New York<br />
+      CGV8+M2C Ithaca, New York<br />
+      CGV8+R7R Ithaca, New York<br />
+      CGV8+XMH Ithaca, New York<br />
+      CGW8+6WC Ithaca, New York<br />
+      CGW8+MVR Ithaca, New York<br />
+      CGW9+P3R Ithaca, New York<br />
+      CGX8+3RF Ithaca, New York<br />
+      CGX8+GRG Ithaca, New York<br />
+      CGX8+PW2 Ithaca, New York<br />
+      CGX8+VH6 Ithaca, New York<br />
+      FG28+F26 Ithaca, New York<br />
+      FG27+8MG Ithaca, New York<br />
+      FG27+3M3 Ithaca, New York<br />
+      CGX7+CPP Ithaca, New York<br />
+      CGX7+6PX Ithaca, New York<br />
+      CGW7+VXG Ithaca, New York<br />
+      CGW8+G3C Ithaca, New York<br />
+      CGW8+F9J Ithaca, New York<br />
+      CGW8+4F2 Ithaca, New York<br />
+      CGW8+35X Ithaca, New York<br />
+      CGW7+4Q2 Ithaca, New York<br />
+      CGV8+XV9 Ithaca, New York<br />
+      CGW9+F9Q Ithaca, New York<br />
+      CGW9+JRW Ithaca, New York<br />
+      CGXC+357 Ithaca, New York<br />
+      CGXC+99P Ithaca, New York<br />
+      CGXC+HGH Ithaca, New York<br />
+      CGXC+HQG Ithaca, New York<br />
+      CGXC+JWC Ithaca, New York<br />
+      CGXC+VG2 Ithaca, New York<br />
+      CGXC+V5M Ithaca, New York<br />
+      CGXC+X67 Ithaca, New York<br />
+      CGXC+P2H Ithaca, New York<br />
+      CGXC+H35 Ithaca, New York<br />
+    </p>
+  </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const getCookie = (cname) => {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    let savedPlayerId = getCookie("playerId");
+    if (savedPlayerId.length < 3) {
+      window.location.href = "/";
+    }
+  });
+</script>
+
+</html>

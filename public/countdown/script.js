@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (distance < 0) {
         clearInterval(x);
         countdownTimer.innerHTML = "Let's Begin";
-        window.location.href = "/thefirstgame/";
+        window.location.href = "/thefirstgame/start.html";
       }
     }, 1000);
 
