@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (playerData['phoneNumber'].endsWith(getCookie("phoneNumber"))) {
         // Setup Puzzles
         let board = Array.from({ length: 24 }, (_, i) => { return { puzzleId: i + 1, solved: false } });
+        let verifiedBingoPatterns = [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [10, 11, 12, 13], [14, 15, 16, 17, 18], [19, 20, 21, 22, 23], [0, 5, 10, 14, 19], [1, 6, 11, 15, 20], [2, 7, 16, 21], [3, 8, 12, 17, 22], [4, 9, 13, 18, 23], [0, 6, 17, 23], [4, 8, 15, 19]];
+        let bingo = false;
+
         if (playerData['bingoBoard']) {
           board = playerData['bingoBoard'];
         } else {
@@ -83,6 +86,35 @@ document.addEventListener('DOMContentLoaded', function () {
           bingoBox.className = (it.solved) ? "completed-puzzle" : "locked-puzzle";
           colItem.appendChild(bingoBox);
         });
+
+        verifiedBingoPatterns.forEach((pattern) => {
+          let correctSoFar = true;
+          pattern.forEach((tile) => {
+            if (!board[tile].solved) {
+              correctSoFar = false;
+            }
+          });
+          if (correctSoFar) {
+            bingo = true;
+          }
+        });
+
+        if (bingo) {
+          clearInterval(x);
+          countdownTimer.innerHTML = "Bingo!";
+          if (!playerData['bingo']) {
+            playerData['bingo'] = true;
+            let msgList = [];
+            if (playerData['messages']) {
+              msgList = playerData['messages'];
+            } else {
+              playerData['messages'] = msgList;
+            }
+            msgList.push({ title: `Player ${savedPlayerId} has gotten Bingo!`, date: new Date() });
+
+            playerDocRef.set(playerData);
+          }
+        }
 
         db.collection('game_1').get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
