@@ -81,9 +81,9 @@
     </table>
     </p>
     <br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -91,7 +91,7 @@
 
 <script>
   const puzzleId = 8;
-  const puzzleAnwser = "01f2191499b209a0f44bb47ccf9e5a67e7702eb96a5ec0cd12e5896ed2ac0d62e963c744575b54a073effae99ba3b3d2130e75b19a8ef18a889cc9417a31c31b";
+  const puzzleAnswer = "01f2191499b209a0f44bb47ccf9e5a67e7702eb96a5ec0cd12e5896ed2ac0d62e963c744575b54a073effae99ba3b3d2130e75b19a8ef18a889cc9417a31c31b";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -128,13 +128,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

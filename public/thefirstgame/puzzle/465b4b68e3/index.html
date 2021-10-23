@@ -31,9 +31,9 @@
     <h1>Any Study</h1>
     <img src="/thefirstgame/puzzle/assets/c8cac8e666.png" />
     <br /><br /><br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -41,7 +41,7 @@
 
 <script>
   const puzzleId = 13;
-  const puzzleAnwser = "465b4b68e35781339ed59856229aa93529d6193cf0e54be7d857c5e01a96381419e724e0c09b4bef6b954dbcf45d84db35ce0dcf5f9837d9f45878c2fd34c214";
+  const puzzleAnswer = "465b4b68e35781339ed59856229aa93529d6193cf0e54be7d857c5e01a96381419e724e0c09b4bef6b954dbcf45d84db35ce0dcf5f9837d9f45878c2fd34c214";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -78,13 +78,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

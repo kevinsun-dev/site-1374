@@ -31,9 +31,9 @@
     <h1>Eternal Flame</h1>
     <img src="/thefirstgame/puzzle/assets/abb317d6b9.png" />
     <br /><br /><br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -41,7 +41,7 @@
 
 <script>
   const puzzleId = 18;
-  const puzzleAnwser = "abb317d6b957659a880170f0b05fbd362007013b3c4840fe26ec5f84a14bb0c25a4726138d02179830f581b9c037aee265db3630e899227e36cdb1bb94bb1890";
+  const puzzleAnswer = "abb317d6b957659a880170f0b05fbd362007013b3c4840fe26ec5f84a14bb0c25a4726138d02179830f581b9c037aee265db3630e899227e36cdb1bb94bb1890";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -78,13 +78,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

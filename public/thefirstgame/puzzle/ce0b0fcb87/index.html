@@ -31,9 +31,9 @@
     <h1>Favorites</h1>
     <p><i>Note: The answer is the artist(s)'s name</i></p>
     <br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -41,7 +41,7 @@
 
 <script>
   const puzzleId = 5;
-  const puzzleAnwser = "ce0b0fcb8771c778dd4253f469f828626d16a26f0175dbc8defcfb697874b13738b77e35bd0e9839be1a624f8596706bba0f5ea96ddf033d85d461da2859cf90";
+  const puzzleAnswer = "ce0b0fcb8771c778dd4253f469f828626d16a26f0175dbc8defcfb697874b13738b77e35bd0e9839be1a624f8596706bba0f5ea96ddf033d85d461da2859cf90";
 
   const changeFavicon = link => {
     let $favicon = document.querySelector('link[rel="icon"]')
@@ -100,13 +100,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

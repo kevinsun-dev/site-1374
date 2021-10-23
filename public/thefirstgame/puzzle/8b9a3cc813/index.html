@@ -29,12 +29,12 @@
   <div id="message">
     <h2>Puzzle 6</h2>
     <h1>Checkmate</h1>
-    <p>The anwser to this puzzle will be the final move to this checkmate sequence. Format the anwser as "Piece Coordiate" (ie: Queen A4).</p>
+    <p>The answer to this puzzle will be the final move to this checkmate sequence. Format the answer as "Piece Coordiate" (ie: Queen A4).</p>
     <img src="/thefirstgame/puzzle/assets/8b9a3cc813.png" />
     <br /><br /><br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -42,7 +42,7 @@
 
 <script>
   const puzzleId = 6;
-  const puzzleAnwser = "8b9a3cc813df9ff934778053e94b8fc15e76e865be83e91c750315a11df761d7abe3ded15e44cbd2689f4ea9ca72673886a677de152af25661c530353b2a4bf3";
+  const puzzleAnswer = "8b9a3cc813df9ff934778053e94b8fc15e76e865be83e91c750315a11df761d7abe3ded15e44cbd2689f4ea9ca72673886a677de152af25661c530353b2a4bf3";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -79,13 +79,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

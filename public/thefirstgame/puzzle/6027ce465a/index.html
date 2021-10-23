@@ -35,9 +35,9 @@
       SEVENTY FOUR POINT ZERO ONE THREE EIGHT DEGREES WEST
     </p>
     <br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -45,7 +45,7 @@
 
 <script>
   const puzzleId = 17;
-  const puzzleAnwser = "6027ce465a780be1767bb6d6bd1477e133afde9380a66b3a45b454d525197594bd291c3af3eb5b84bc74d6be44546fb3a15f68160a890f3027ab87428e6d0b28";
+  const puzzleAnswer = "6027ce465a780be1767bb6d6bd1477e133afde9380a66b3a45b454d525197594bd291c3af3eb5b84bc74d6be44546fb3a15f68160a890f3027ab87428e6d0b28";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -82,13 +82,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

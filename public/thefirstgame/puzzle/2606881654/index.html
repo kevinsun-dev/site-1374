@@ -32,9 +32,9 @@
     <p>Solve the puzzle to reveal the name of a species that does not exist</p>
     <img src="/thefirstgame/puzzle/assets/2606881654.png" />
     <br /><br /><br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -42,7 +42,7 @@
 
 <script>
   const puzzleId = 3;
-  const puzzleAnwser = "2606881654302f46e9c3e4a3b0f0ec3b42224f9c43207411169ac15912839c70489fde359135f2a9cdd9a30d1a81f4ad507abb509cca57b56bc528c654a380d9";
+  const puzzleAnswer = "2606881654302f46e9c3e4a3b0f0ec3b42224f9c43207411169ac15912839c70489fde359135f2a9cdd9a30d1a81f4ad507abb509cca57b56bc528c654a380d9";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -79,13 +79,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {

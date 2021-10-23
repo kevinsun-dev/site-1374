@@ -31,9 +31,9 @@
     <h1>The Great Outdoors</h1>
     <p id="puzzleText"></p>
     <br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -41,7 +41,7 @@
 
 <script>
   const puzzleId = 14;
-  const puzzleAnwser = "ba7442052fc0b0c0811affd3411bb35dec64401d44d3ce315aaa504891899778ea23a72429e19aeddf8f2c842806122fe6f4ed284413971d7cfa9f447f85cf71";
+  const puzzleAnswer = "ba7442052fc0b0c0811affd3411bb35dec64401d44d3ce315aaa504891899778ea23a72429e19aeddf8f2c842806122fe6f4ed284413971d7cfa9f447f85cf71";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -85,13 +85,13 @@
         puzzleText.innerHTML = `Player ${savedPlayerId}, you are on Team ${playerData.team}. Find the missing Team.`;
       });
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             playerDocRef.get().then((playerDoc) => {
               let playerData = playerDoc.data();
               let board = playerData['bingoBoard'];

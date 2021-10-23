@@ -29,12 +29,12 @@
   <div id="message">
     <h2>Puzzle 20</h2>
     <h1>Straightforward</h1>
-    <p>Note: There exists a space in the anwser.</p>
+    <p>Note: There exists a space in the answer.</p>
     <img src="/thefirstgame/puzzle/assets/3bdc05f274.png" />
     <br /><br /><br />
-    <form id="submitAnwser">
-      <label for="anwser">Anwser:</label>
-      <input type="text" id="anwser" name="anwser" required>
+    <form id="submitAnswer">
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer" name="answer" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -42,7 +42,7 @@
 
 <script>
   const puzzleId = 20;
-  const puzzleAnwser = "3bdc05f27404cbedd2ba5f0295a8edf8bf4353dc4808355039aead0e7c5f0221cf4484ee463f7c4d500738856fc2e5aed0569c085d7c05cd9a94fca4277672d3";
+  const puzzleAnswer = "3bdc05f27404cbedd2ba5f0295a8edf8bf4353dc4808355039aead0e7c5f0221cf4484ee463f7c4d500738856fc2e5aed0569c085d7c05cd9a94fca4277672d3";
 
   document.addEventListener('DOMContentLoaded', function () {
     try {
@@ -79,13 +79,13 @@
         window.location.href = "/";
       }
 
-      let anwserForm = document.getElementById("submitAnwser");
-      anwserForm.addEventListener('submit', (event) => {
-        let anwser = anwserForm.elements['anwser'].value.toUpperCase();
-        anwserForm.elements['anwser'].value = "";
+      let answerForm = document.getElementById("submitAnswer");
+      answerForm.addEventListener('submit', (event) => {
+        let answer = answerForm.elements['answer'].value.toUpperCase();
+        answerForm.elements['answer'].value = "";
 
-        digestMessage(anwser).then((hash) => {
-          if (hash === puzzleAnwser) {
+        digestMessage(answer).then((hash) => {
+          if (hash === puzzleAnswer) {
             const playerDocRef = db.collection('players').doc(savedPlayerId);
 
             playerDocRef.get().then((playerDoc) => {
