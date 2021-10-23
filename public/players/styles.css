@@ -115,7 +115,7 @@ body {
 
 #chatContainer {
     overflow-y: scroll;
-    height: calc(100% - 4em);
+    height: calc(100% - 6.5em);
 }
 
 .player-content {
