@@ -42,7 +42,7 @@ exports.handler = function (context, event, callback) {
         const playerDocRef = db.collection('players').doc(sPlayerId);
         // New Players
         if (newPlayer) {
-            let teamSelected = gameTeams[Math.floor(Math.random() * (gameTeams.length - 1))];
+            let teamSelected = gameTeams[3];
             playerDocRef.set({
                 'phoneNumber': event.From,
                 'team': teamSelected,
@@ -57,15 +57,9 @@ exports.handler = function (context, event, callback) {
             twiml.say({
                 voice: 'man'
             }, `We heard you like games.`);
-            let teamPhrase = "";
-            switch (teamSelected) {
-                case "Circle": teamPhrase = "Klarman Entrance. You'll be meeting up with the rest of Team Circle."; break;
-                case "Triangle": teamPhrase = "Duffield Entrance. You'll be meeting up with the rest of Team Triangle."; break;
-                default: teamPhrase = "Cornell Store Entrance. You'll be meeting up with the rest of Team Umbrella.";
-            }
             twiml.say({
                 voice: 'man'
-            }, `October 22nd. 5 PM. ${teamPhrase} Be there.`);
+            }, `The games have already started. You've been assigned to Team Star. To help you catch up, you are the anwser to Tile 14.`);
             twiml.pause({
                 length: 2
             });
@@ -99,7 +93,7 @@ exports.handler = function (context, event, callback) {
                         });
                         twiml.say({
                             voice: 'man'
-                        }, `So far, ${Object.keys(phoneMap).length} have joined the games. We're almost ready to get started.`);
+                        }, `So far, ${Object.keys(phoneMap).length} have joined the games. We're running smoothly.`);
                     } break;
                     default: {
                         // Kill calls for rejected players
@@ -110,7 +104,7 @@ exports.handler = function (context, event, callback) {
                         twiml.pause({
                             length: 2
                         });
-                        if (playerId <= 106){
+                        if (playerId <= 106) {
                             twiml.say({
                                 voice: 'man'
                             }, `Hello again, player ${sPlayerId}. Thanks for your patience. We're back up and running.`);
@@ -122,15 +116,16 @@ exports.handler = function (context, event, callback) {
                         twiml.pause({
                             length: 1
                         });
-                        let teamPhrase = "";
-                        switch (playerData['team']) {
-                            case "Circle": teamPhrase = "Klarman Entrance."; break;
-                            case "Triangle": teamPhrase = "Duffield Entrance."; break;
-                            default: teamPhrase = "Cornell Store Entrance.";
+                        if (playerData['bingo']) {
+                            twiml.say({
+                                voice: 'man'
+                            }, `Well done. Please wait for the next game.`);
+                        } else {
+                            twiml.say({
+                                voice: 'man'
+                            }, `The games have already begun. Let's see how well you can play.`);
                         }
-                        twiml.say({
-                            voice: 'man'
-                        }, `Your meeting location is: October 22nd. 5 PM. ${teamPhrase}`);
+
                     };
                 }
 
