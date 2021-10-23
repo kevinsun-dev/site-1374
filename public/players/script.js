@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendMsg = document.getElementById('sendMsg');
     playerDisp.innerText = `Welcome Back, Player ${savedPlayerId}.`
 
-    const playersRef = db.collection('players');
+    const playersRef = db.collection('players').orderBy("dateJoined", "asc");
     playersRef.get().then((playersDoc) => {
       let index = 0;
       let chatList = [];
