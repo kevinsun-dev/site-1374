@@ -78,6 +78,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (playerData['stairMaze']) {
           board = playerData['stairMaze'];
           displayImage = board.currentTile;
+          if (board.currentTile == board.end) {
+            if (!playerData['escapedMaze']) {
+              playerData['escapedMaze'] = true;
+
+              let msgList = [];
+              if (playerData['messages']) {
+                msgList = playerData['messages'];
+              } else {
+                playerData['messages'] = msgList;
+              }
+              msgList.push({ title: `Player ${savedPlayerId} has escaped the maze!`, date: new Date() });
+              playerDocRef.set(playerData);
+            }
+          }
         } else {
           board['currentTile'] = board.start;
           displayImage = board.currentTile;
@@ -232,7 +246,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 setCurrentRoom();
                 playerData['stairMaze'] = board;
                 if (board.currentTile == board.end) {
-                  playerData['escapedMaze'] = true;
+                  if (!playerData['escapedMaze']) {
+                    playerData['escapedMaze'] = true;
+
+                    let msgList = [];
+                    if (playerData['messages']) {
+                      msgList = playerData['messages'];
+                    } else {
+                      playerData['messages'] = msgList;
+                    }
+                    msgList.push({ title: `Player ${savedPlayerId} has escaped the maze!`, date: new Date() });
+                  }
                 }
                 playerDocRef.set(playerData);
               }
