@@ -114,7 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
             No dice.
             In desperation, you yank on the door handle ahead.
 
-            It calmly opens with a *click*, revealing the a room full of sleeping players. You've made it.`;
+            It calmly opens with a *click*, revealing the a room full of sleeping players. You've made it.
+            
+            Congratulations, you've successfully escaped the maze! Feel free to go back to try other puzzles!`;
           } else {
             let rText = Math.floor(Math.random() * 3);
             switch (rText) {
