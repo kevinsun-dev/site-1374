@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let app = firebase.app();
     let db = firebase.firestore();
     let analytics = firebase.analytics();
-    let countDownDate = new Date("Oct 22, 2021 17:00:00").getTime();
+    let countDownDate = new Date("Oct 30, 2021 08:00:00").getTime();
 
     const getCookie = (cname) => {
       let name = cname + "=";
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (distance < 0) {
         clearInterval(x);
         countdownTimer.innerHTML = "Let's Begin";
-        window.location.href = "/thefirstgame/start.html";
+        window.location.href = "/";
       }
     }, 1000);
 

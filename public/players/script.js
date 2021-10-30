@@ -44,48 +44,28 @@ document.addEventListener('DOMContentLoaded', function () {
     playersRef.get().then((playersDoc) => {
       let index = 0;
       let chatList = [];
-      let solvedCount = {};
       playersDoc.forEach((playerDoc) => {
         let playerData = playerDoc.data();
         if (playerDoc.id > 0) {
-          let colNum = index % 5;
-          const colItem = document.getElementById(`column_${colNum}`);
-          const playerContainer = document.createElement("div");
-          const playerFace = document.createElement("p");
-          playerFace.id = `player_${playerDoc.id}`;
-          playerFace.innerText = playerDoc.id;
-          playerFace.className = "player-content";
-          if (colNum % 2 == 1) {
-            playerContainer.className = (!playerData.eliminated) ? "player-alt player-alive" : "player-alt player-dead";
-          } else {
-            playerContainer.className = (!playerData.eliminated) ? "player player-alive" : "player player-dead";
-          }
-          if (playerData.messages) {
-            chatList = chatList.concat(playerData.messages);
-          }
-
-          let board = [];
-          if (playerData['bingoBoard']) {
-            board = playerData['bingoBoard'];
-          }
-          board.forEach((it, i) => {
-            if (it.solved) {
-              if (solvedCount[it.puzzleId]) {
-                solvedCount[it.puzzleId]++;
-              } else {
-                solvedCount[it.puzzleId] = 1;
-              }
+          while (index < playerDoc.id) {
+            let colNum = index % 5;
+            const colItem = document.getElementById(`column_${colNum}`);
+            const playerContainer = document.createElement("div");
+            const playerFace = document.createElement("p");
+            const playerTag = (index + 1).toString().padStart(3, '0');
+            playerFace.id = `player_${playerTag}`;
+            playerFace.innerText = playerTag;
+            playerFace.className = (playerDoc.id == playerTag) ? "player-content" : "player-dead";
+            playerContainer.className = (colNum % 2 == 1) ? "player-alt" : "player";
+            if (playerDoc.id == playerTag && playerData.messages) {
+              chatList = chatList.concat(playerData.messages);
             }
-          });
-
-          playerContainer.appendChild(playerFace);
-          colItem.appendChild(playerContainer);
+            playerContainer.appendChild(playerFace);
+            colItem.appendChild(playerContainer);
+            index++;
+          }
         }
-        index++;
       });
-
-      // Puzzles Solved
-      console.log(solvedCount);
 
       let sortedChat = chatList.sort((a, b) => b.date - a.date);
       sortedChat.forEach((msg) => {

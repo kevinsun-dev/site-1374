@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>The Second Game</title>
+  <meta name="description" content="⭘△▢">
+  <meta name="author" content="⭘△▢">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.1.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.1.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.1.2/firebase-analytics-compat.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script src="/thesecondgame/script.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="/thesecondgame/styles.css" />
+</head>
+
+<body>
+  <div id="message">
+    <h2>Game 2.</h2>
+    <h1>Staircase Maze</h1>
+    <p id="instrText"></p>
+    <form id="submitAnswer" class="pure-form">
+      <input type="text" id="answer" name="answer" required>
+      <button type="submit" class="pure-button">&#10148;</button>
+    </form>
+  </div>
+  <div class="folder" id="folder">
+    <div class="back"></div>
+    <div class="paper"></div>
+    <div class="paper"></div>
+    <div class="paper"></div>
+    <div class="cover"></div>
+  </div>
+  <div id="documentModal" class="modal">
+    <span class="close">&times;</span>
+    <span class="doc_left">&larr;</span>
+    <span class="doc_right">&rarr;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption">000</div>
+  </div>
+  <div id="rules" style="visibility: hidden;">
+    <h2>Game 2.</h2>
+    <h1>Escape the Maze</h1>
+    <p>
+      Welcome to the games, Player. We’re glad to have you here. <br /><br />
+      <b>How to Play</b><br />
+      This is the first of six games, a simple game of Bingo. Fill in Bingo squares until a row, column, or
+      diagonal is complete. However, to fill in a square, you must first solve a puzzle. The answer to each puzzle will
+      be a single word unless specified otherwise.<br /><br />
+      <b>Unlocking Puzzles</b><br />
+      We have scattered around QR codes to unlock puzzles across the campus. When scanned, the puzzle is unlocked for
+      everyone, and a unique hint is revealed only to the player who unlocked it. Please take down the QR after you’ve
+      scanned it. We’ve included a <a href="/thefirstgame/unlock/">list of locations</a> to where the unlock codes can
+      be found.<br /><br />
+      <b>Elimination</b><br />
+      If a player cannot complete a Bingo before October 27th, at 11:59 PM, they will be eliminated from the
+      games.<br />
+      <br />
+      Good luck, and have fun! :D
+    </p>
+    <a href="#" onclick="document.getElementById('rules').style.visibility = 'hidden'">Return to the game</a>
+  </div>
+  <h1 id="timeLeft"></h1>
+  <a id="rulesbtn" style="position: absolute; bottom: 0; left: 0;">
+    <img alt="Rules" src="../assets/rules.svg" width="64" height="64">
+  </a>
+  <a href="/players" style="position: absolute; bottom: 0; right: 0;">
+    <img alt="Player List" src="../assets/playerbook.svg" width="64" height="64">
+  </a>
+</body>
+
+</html>

@@ -166,6 +166,18 @@ body {
     /* initial ratio of 1:1*/
 }
 
+.player-dead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: scale(1.5) rotate(-45deg);
+    background-image: url('../assets/avatar.jpg');
+    background-size: cover;
+    filter: grayscale(100%) brightness(10%);
+}
+
 .locked-puzzle {
     background-image: url(/thefirstgame/assets/lock.svg);
     background-size: contain;

@@ -1,0 +1,410 @@
+body {
+    background-image: url(/assets/playpen_texture.jpg);
+    background-size: contain;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#message {
+    background-image: url(/assets/paper_texture.jpg);
+    background-size: contain;
+    max-width: 36em;
+    margin: 100px auto 16px;
+    padding: 32px 24px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+}
+
+#message h2 {
+    color: #B31B1B;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0 8px;
+}
+
+#message h1 {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 16px;
+}
+
+#message p {
+    line-height: 140%;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+#rules {
+    position: absolute;
+    background-image: url(/assets/paper_texture.jpg);
+    background-size: contain;
+    max-width: 360px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 50px auto 100px;
+    padding: 32px 24px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#rules h2 {
+    color: #B31B1B;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0 8px;
+}
+
+#rules h1 {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 16px;
+}
+
+#rules p {
+    line-height: 140%;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+#message, #message a {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#message input[type=text] {
+    margin: 0;
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: none;
+    font-family: 'Courier Prime', monospace;
+    font-size: 14pt;
+}
+
+#message input[type=text]::placeholder {
+    color: #111;
+}
+
+#message button {
+    margin: 0;
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Courier Prime', monospace;
+    font-size: 14pt;
+}
+
+.folder {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    perspective: 2500px;
+    margin: 100px auto;
+    width: 990px;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0.3);
+}
+
+.folder:before {
+    content: "";
+    position: absolute;
+    bottom: 229px;
+    box-shadow: 0px 0px 28px 15px rgba(0, 0, 0, .7);
+    left: 0;
+    right: 0;
+    margin: 0 18em;
+}
+
+.folder:after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, .7);
+    left: 0;
+    right: 0;
+    margin: 0 16em;
+}
+
+.folder .back {
+    width: 500px;
+    height: 320px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: inset 3px -5px 10px -5px black;
+    position: relative;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #cb8b0f36 0%, #df9e2236 21%, #af6e0336 99%), url(/thesecondgame/assets/manilla-b.jpg);
+    background-size: contain;
+}
+
+.folder .cover {
+    width: 500px;
+    height: 320px;
+    border-radius: 20px 0px 20px 20px;
+    box-shadow: inset 3px -5px 10px -5px black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #fcba2b36 0%, #df9e2236 70%, #cb8b0f36 100%), url(/thesecondgame/assets/manilla-b.jpg);
+    background-size: contain;
+    transform-origin: 0 108%;
+    transform: rotateX(0deg);
+    animation: folderUnfold 1.25s ease 0s forwards;
+}
+
+.folder .cover:after {
+    position: absolute;
+    content: "";
+    width: 145px;
+    height: 30px;
+    border-radius: 20px 20px 0 0;
+    background-image: linear-gradient(to bottom, #fcba2b36 0%, #df9e2236 70%, #cb8b0f36 100%), url(/thesecondgame/assets/manilla-b.jpg);
+    top: -30px;
+    right: 0;
+    border: 0;
+}
+
+.paper {
+    background: #fff;
+    height: 100px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 260px;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: folderPaperJump .75s ease .75s forwards;
+}
+
+.paper+.paper {
+    margin: 8px 270px 0 255px;
+    animation: folderPaperJump .95s ease 1s forwards;
+}
+
+.paper+.paper+.paper {
+    margin: 16px 255px 0 270px;
+    animation: folderPaperJump .75s ease 1.25s forwards;
+}
+
+@keyframes folderUnfold {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-30deg);
+    }
+}
+
+@keyframes folderPaperJump {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(100px);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 80px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+
+.close {
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.doc_left {
+    position: fixed;
+    bottom: 15px;
+    left: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.doc_left:hover, .doc_left:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.doc_right {
+    position: fixed;
+    bottom: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.doc_right:hover, .doc_right:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* More Work */
+
+.locked-puzzle {
+    background-image: url(/thefirstgame/assets/lock.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.completed-puzzle {
+    background-image: url(/thefirstgame/assets/check.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#timeLeft {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-family: 'Courier Prime', monospace;
+    font-size: 20pt;
+}
+
+#load {
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    body, #message, #rules {
+        margin-top: 0;
+        background-image: url(/assets/paper_texture.jpg);
+        background-size: contain;
+        box-shadow: none;
+    }
+    body {
+        border-top: 16px solid #B31B1B;
+    }
+    #message h2 {
+        margin-top: 3em;
+    }
+}

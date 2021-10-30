@@ -59,7 +59,7 @@ exports.handler = function (context, event, callback) {
             }, `We heard you like games.`);
             twiml.say({
                 voice: 'man'
-            }, `The games have already started. You've been assigned to Team Star. To help you catch up, you are the anwser to Tile 14.`);
+            }, `The games have already started. You've been assigned to Team Star. Visit m c c c l x x i v dot web dot app to get started. To help you catch up, you are the anwser to Tile 14.`);
             twiml.pause({
                 length: 2
             });
@@ -80,8 +80,7 @@ exports.handler = function (context, event, callback) {
                 let playerData = playerDoc.data();
                 const twiml = new Twilio.twiml.VoiceResponse();
                 switch (playerId) {
-                    case 0:
-                    case 1: {
+                    case 0: {
                         twiml.pause({
                             length: 2
                         });
@@ -104,15 +103,9 @@ exports.handler = function (context, event, callback) {
                         twiml.pause({
                             length: 2
                         });
-                        if (playerId <= 106) {
-                            twiml.say({
-                                voice: 'man'
-                            }, `Hello again, player ${sPlayerId}. Thanks for your patience. We're back up and running.`);
-                        } else {
-                            twiml.say({
-                                voice: 'man'
-                            }, `Hello again, player ${sPlayerId}.`);
-                        }
+                        twiml.say({
+                            voice: 'man'
+                        }, `Hello again, player ${sPlayerId}.`);
                         twiml.pause({
                             length: 1
                         });
@@ -123,7 +116,7 @@ exports.handler = function (context, event, callback) {
                         } else {
                             twiml.say({
                                 voice: 'man'
-                            }, `The games have already begun. Let's see how well you can play.`);
+                            }, `The games have already begun. Let's see how well you can play. Visit m c c c l x x i v dot web dot app to take part.`);
                         }
 
                     };

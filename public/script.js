@@ -32,13 +32,25 @@ document.addEventListener('DOMContentLoaded', function () {
       'performance',
     ].filter(feature => typeof app[feature] === 'function');
 
-    const attemptLogin = () => {
-      let playerId = Number(loginForm.elements['playerId'].value).toString().padStart(3, '0');;
-      let phoneDigits = loginForm.elements['phone'].value;
+    Array.prototype.sample = function(){
+      return this[Math.floor(Math.random()*this.length)];
+    }
 
+    const randomLinkSites = [
+      "https://xkcd.com/1969/",
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "https://github.com/redis/redis/issues/3909",
+      "https://www.google.com/search?q=google+in+1998",
+      "https://mkorostoff.github.io/1-pixel-wealth/"
+    ];
+
+    const attemptLogin = (playerId, phoneDigits) => {
       const playerDocRef = db.collection('players').doc(playerId);
 
       playerDocRef.get().then((playerDoc) => {
+        if (!playerDoc.exists) {
+          window.location.href = randomLinkSites.sample();
+        }
         let playerData = playerDoc.data();
         if (playerData['phoneNumber'].endsWith(phoneDigits)) {
           document.cookie = `playerId=${playerId}; phoneNumber=${phoneDigits}`;
@@ -51,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let name = cname + "=";
       let decodedCookie = decodeURIComponent(document.cookie);
       let ca = decodedCookie.split(';');
-      for(let i = 0; i <ca.length; i++) {
+      for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
@@ -64,15 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let savedPlayerId = getCookie("playerId");
-    if (savedPlayerId.length >= 3){
-      window.location.href = "/countdown/";
+    let savedPhoneDigits = getCookie("phoneNumber");
+    if (savedPlayerId.length >= 3) {
+      attemptLogin(savedPlayerId, savedPhoneDigits);
     }
 
     loginForm.addEventListener('submit', (event) => {
-      attemptLogin();
+      let playerId = Number(loginForm.elements['playerId'].value).toString().padStart(3, '0');;
+      let phoneDigits = loginForm.elements['phone'].value;
+      attemptLogin(playerId, phoneDigits);
       event.preventDefault();
     });
-    
+
   } catch (e) {
     console.error(e);
   }
