@@ -23,8 +23,8 @@
         },
         {
             "id": 3,
-            "document_img": "puzzle_3.png",
-            "correct_answer": "dd16587b8ccbd85b0d09602c326a658629a3460f1b205a7fef1b4f36c04a7d7771662b68dfc29597de879f4175f5123f429e88b14a09e58660dff43313309416",
+            "document_img": "puzzle_10.png",
+            "correct_answer": "389a64c5bc2b259e28a59c4e5e3f288ab4c4d9f517691bf06182367760570eddf4c4c027929b5e749f5c327b7223c4fb1cd1d0937db3e0905da0a5e2c1ef9dd2",
             "exits": [2, 7]
         },
         {
@@ -71,8 +71,8 @@
         },
         {
             "id": 11,
-            "document_img": "puzzle_10.png",
-            "correct_answer": "389a64c5bc2b259e28a59c4e5e3f288ab4c4d9f517691bf06182367760570eddf4c4c027929b5e749f5c327b7223c4fb1cd1d0937db3e0905da0a5e2c1ef9dd2",
+            "document_img": "puzzle_3.png",
+            "correct_answer": "dd16587b8ccbd85b0d09602c326a658629a3460f1b205a7fef1b4f36c04a7d7771662b68dfc29597de879f4175f5123f429e88b14a09e58660dff43313309416",
             "exits": [10, 15]
         },
         {
