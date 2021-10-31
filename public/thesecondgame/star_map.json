@@ -31,7 +31,7 @@
             "id": 4,
             "document_img": "puzzle_4.png",
             "correct_answer": "0a2231bd683ab3c1a6b29873f23f20a6518bf5217f782abe2bcc425198c484f5377cbfc5f22504554990bea89cd45e488308bcd7b070345501e5f366f7cc546c",
-            "exits": [1, 8, 23] 
+            "exits": [0, 8, 23] 
         },
         {
             "id": 5,
