@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
     playersRef.get().then((playersDoc) => {
       let index = 0;
       let chatList = [];
+      let openedNum = 0;
+      let startedNum = 0;
+      let completedNum = 0;
+
       playersDoc.forEach((playerDoc) => {
         let playerData = playerDoc.data();
         if (playerDoc.id > 0) {
@@ -64,8 +68,21 @@ document.addEventListener('DOMContentLoaded', function () {
             colItem.appendChild(playerContainer);
             index++;
           }
+          if (playerData['stairMaze']){
+            openedNum++;
+            if (playerData['stairMaze'].history.length > 0){
+              startedNum++;
+              if (playerData['stairMaze'].currentTile == playerData['stairMaze'].end || playerData['escapedMaze']){
+                completedNum++;
+              }
+            }
+          }
         }
       });
+
+      // console.log("Opened: " + openedNum);
+      // console.log("Started: " + startedNum);
+      // console.log("Completed: " + completedNum);
 
       let sortedChat = chatList.sort((a, b) => b.date - a.date);
       sortedChat.forEach((msg) => {

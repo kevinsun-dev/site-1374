@@ -92,6 +92,10 @@ document.addEventListener('DOMContentLoaded', function () {
               playerDocRef.set(playerData);
             }
           }
+          if (playerData['escapedMaze']){
+            clearInterval(x);
+            countdownTimer.innerHTML = "Escaped!";
+          }
         } else {
           board['currentTile'] = board.start;
           displayImage = board.currentTile;
@@ -259,6 +263,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     msgList.push({ title: `Player ${savedPlayerId} has escaped the maze!`, date: new Date() });
                   }
+                  clearInterval(x);
+                  countdownTimer.innerHTML = "Escaped!";
                 }
                 playerDocRef.set(playerData);
               }
